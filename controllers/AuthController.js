@@ -41,3 +41,9 @@ const Login = async (req, res) => {
             throw error
           }
     }
+
+//CheckSession Function
+const CheckSession = async (req, res) => {
+    const { payload } = res.locals
+    res.send(payload)
+}
