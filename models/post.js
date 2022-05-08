@@ -24,10 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      field: 'teacher_id',
+      field: 'user_id',
       onDelete: 'CASCADE',
       references: {
-        model: 'teachers',
+        model: 'users',
         key: 'id'
       }
     },

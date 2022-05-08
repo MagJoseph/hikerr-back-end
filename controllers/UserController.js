@@ -34,14 +34,28 @@ const GetUserPosts = async (req, res) => {
 
 const GetOnePost = async (req, res) => {
     try {
-        const onePost = await Post.findBypk(parseInt(req.params.post_id))
+        const onePost = await Post.findByPk(parseInt(req.params.post_id))
         const getComments = await Comment.findAll({
             where: {post_id: parseInt(req.params.post_id)}
         })
+        res.send({onePost, getComments})
     } catch (error) {
             throw error
     }
 }
+
+const GetAllComments = async (req, res) => {
+    try {
+          const getComments = await Comment.findAll({
+              
+          })
+        res.send({getComments})
+    } catch (error) {
+        throw error
+}
+}
+ 
+
 
 const GetAllUsersInfo = async (req, res) => {
     try {
@@ -99,7 +113,7 @@ const CreateComment = async (req, res) => {
     try{
         const post_id = parseInt(req.params.post_id)
         const commentBody = {
-            post_id,
+           post_id,
             ...req.body
         }
         const newComment = await Comment.create(commentBody)
@@ -149,5 +163,7 @@ module.exports = {
     GetUserPosts,
     UpdatePost,
     GetUser,
-    DeletePost
+    DeletePost,
+    GetAllComments
+   
 }
