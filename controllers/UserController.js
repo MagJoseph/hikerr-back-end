@@ -1,5 +1,6 @@
 //Imports
 const { Comment, Post, User, Time } = require('../models')
+const { Op } = require("sequelize");
 
 
 //Get Controllers
@@ -150,6 +151,27 @@ const DeletePost = async (req, res) => {
     }
 }
 
+//Search
+
+const FindPost = async (req, res) => {
+    try {
+      let searchQuery = req.params.searchQuery;
+      const find = await Post.findAll({
+        where: {
+          title: {
+            [Op.like]: `%${searchQuery}%`
+          },
+        },
+      });
+      if (find) {
+        return res.send(find)
+      }
+     } catch (error) {
+      throw error;
+    }
+
+}
+
 
 //Exports
 module.exports = {
@@ -164,6 +186,7 @@ module.exports = {
     UpdatePost,
     GetUser,
     DeletePost,
-    GetAllComments
+    GetAllComments,
+    FindPost
    
 }

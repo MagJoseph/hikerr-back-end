@@ -33,6 +33,7 @@ app.get('/comments', userController.GetAllComments)
 app.get('/posts/:user_id', userController.GetUserPosts)
 app.get('/users_info', userController.GetAllUsersInfo)
 app.get('/times', userController.GetTimes)
+app.get('/search/:searchQuery', userController.FindPost)
 
 //post
 app.post('/posts/:user_id', userController.CreatePost)
