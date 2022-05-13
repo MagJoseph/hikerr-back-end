@@ -98,6 +98,10 @@ const CreatePost = async (req, res) => {
     }
 }
 
+
+
+
+
 const CreateTime = async (req, res) => {
     try {
         let timeBody = {
@@ -187,6 +191,7 @@ module.exports = {
     GetUser,
     DeletePost,
     GetAllComments,
-    FindPost
+    FindPost,
+    
    
 }
