@@ -8,7 +8,13 @@ const middleware = require('./middleware')
 //Middleware
 app.use(cors())
 app.use(express.json())
-app.use(express.urlencoded({ extended: false}))
+app.use(express.urlencoded({ extended: false }))
+var corsOptions = {
+  origin: "https://hikrr-backend.herokuapp.com/",
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+
+app.use(cors(corsOptions));
 
 //Controllers
 const userController = require('./controllers/UserController')
