@@ -9,10 +9,10 @@ const middleware = require('./middleware')
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-var corsOptions = {
-  origin: "https://hikrr-backend.herokuapp.com/",
-  optionsSuccessStatus: 200, // For legacy browser support
-};
+// let corsOptions = {
+//   origin: "https://hikrr-backend.herokuapp.com/",
+//   optionsSuccessStatus: 200, // For legacy browser support
+// };
 
 app.use(cors(corsOptions));
 
